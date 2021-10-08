@@ -1,0 +1,58 @@
+export const ROUTES_PATHS = {
+    AUTH: {
+        DEFAULT: `auth`,
+        LOGIN: `login`,
+    },
+    SERVER: {
+        ERROR_404: `404`,
+        ERROR_400: `400`,
+        ERROR_403: `403`,
+        ERROR_500: `500`,
+    },
+    USER: {
+        DEFAULT: `tracks`,
+        FAVORITES: `favorites`,
+        HISTORY: `history`,
+    }
+}
+
+export const INTERNAL_PATHS = {
+    /**
+    * Auth
+    */
+    AUTH_DEFAULT: `${ROUTES_PATHS.AUTH.DEFAULT}`,
+    AUTH_LOGIN: `${ROUTES_PATHS.AUTH.LOGIN}`,
+    /**
+     * User
+     */
+    USER_DEFAULT: `${ROUTES_PATHS.USER.DEFAULT}`,
+    USER_HISTORY: `${ROUTES_PATHS.USER.HISTORY}`,
+    USER_FAVORITES: `${ROUTES_PATHS.USER.FAVORITES}`,
+    /**
+     * Server
+     */
+    SERVER_ERROR_404: `${ROUTES_PATHS.SERVER.ERROR_404}`,
+    SERVER_ERROR_400: `${ROUTES_PATHS.SERVER.ERROR_400}`,
+    SERVER_ERROR_403: `${ROUTES_PATHS.SERVER.ERROR_403}`,
+    SERVER_ERROR_500: `${ROUTES_PATHS.SERVER.ERROR_500}`
+}
+
+export const INTERNAL_ROUTES = {
+    /**
+     * Auth
+     */
+    AUTH_LOGIN: `/${INTERNAL_PATHS.AUTH_DEFAULT}/${INTERNAL_PATHS.AUTH_LOGIN}`,
+    /**
+     * Server
+     */
+    SERVER_ERROR_404: `/${INTERNAL_PATHS.SERVER_ERROR_404}`,
+    SERVER_ERROR_400: `/${INTERNAL_PATHS.SERVER_ERROR_400}`,
+    SERVER_ERROR_403: `/${INTERNAL_PATHS.SERVER_ERROR_403}`,
+    SERVER_ERROR_500: `/${INTERNAL_PATHS.SERVER_ERROR_500}`,
+    /**
+      * User
+      */
+    USER_DEFAULT: `/${INTERNAL_PATHS.USER_DEFAULT}`,
+    USER_FAVORITES: `/${INTERNAL_PATHS.USER_FAVORITES}`,
+    USER_HISTORY: `/${INTERNAL_PATHS.USER_HISTORY}`,
+}
