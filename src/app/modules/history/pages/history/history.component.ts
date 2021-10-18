@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from '@modules/history/services/search.service';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-history',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor() { }
+  listResults$: Observable<any> = of([]);
+  
+  constructor(private searchService: SearchService) { }
 
   ngOnInit(): void {
+  }
+
+  receiveData(event: string): void {
+    this.listResults$ = this.searchService.datatracksTrending$;
   }
 
 }

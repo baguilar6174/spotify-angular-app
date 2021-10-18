@@ -21,17 +21,17 @@ export class SidebarComponent implements OnInit {
     this.mainMenu.defaultOptions = [
       {
         name: 'Home',
-        icon: 'uil uil-estate',
+        icon: 'assets/icons/home.svg',
         router: ['/', 'tracks']
       },
       {
         name: 'Buscar',
-        icon: 'uil uil-search',
+        icon: 'assets/icons/search.svg',
         router: ['/', 'history']
       },
       {
         name: 'Tu biblioteca',
-        icon: 'uil uil-chart',
+        icon: 'assets/icons/library.svg',
         router: ['/', 'favorites'],
         query: { hola: 'mundo' }
       }
@@ -40,11 +40,11 @@ export class SidebarComponent implements OnInit {
     this.mainMenu.accessLink = [
       {
         name: 'Crear lista',
-        icon: 'uil-plus-square'
+        icon: 'assets/icons/add.svg',
       },
       {
         name: 'Canciones que te gustan',
-        icon: 'uil-heart-medical'
+        icon: 'assets/icons/favorite.svg',
       }
     ]
 
@@ -77,7 +77,7 @@ export class SidebarComponent implements OnInit {
         key3: 'value3'
       }
     })
-    console.log($event)
+    // console.log($event)
   }
 
 }

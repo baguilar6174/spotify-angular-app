@@ -13,14 +13,17 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class AuthService {
 
-  public currentUser: BehaviorSubject<IApiUserAuthenticated>;
-  // public userData: Observable<IApiUserAuthenticated>;
   public nameUserLS = 'currentUser';
-  
+  login$: Observable<any> = of();
+
   constructor(
     private httpClient: HttpClient,
     private router: Router,
   ) {}
+
+  get getUser(): IApiUserAuthenticated {
+    return JSON.parse(localStorage.getItem(this.nameUserLS));
+  }
 
   /**
    * Login method
@@ -34,25 +37,21 @@ export class AuthService {
     data: any;
   }> {
     const response = { error: true, msg: ERRORS_CONST.LOGIN.ERROR, data: null };
-    return this.httpClient.post<IApiUserAuthenticated>(API_ROUTES.AUTH.LOGIN, data)
-      .pipe(
-        map((r) => {
-          response.msg = 'Success login';
-          response.error = false;
-          response.data = r;
-          this.setUserToLocalStorage(response.data);
-          this.currentUser.next(r);
-          if (!response.error) {
-            this.router.navigate([INTERNAL_PATHS.USER_DEFAULT]);
-          }
-          return response;
-        }),
-        catchError((e) => {
-          // console.log(e);
-          response.msg = e.error.message;
-          return of(response);
-        })
-      );
+    return this.login$ = new Observable(o => {
+      const user: IApiUserAuthenticated = {
+        name: data.email.split('@')[0],
+        email: data.email,
+        accessToken: data.email+Math.floor(Math.random() * 100) + 1,
+      };
+      response.msg = 'Success login';
+      response.error = false;
+      response.data = user;
+      this.setUserToLocalStorage(response.data);
+      if (!response.error) {
+        this.router.navigate([INTERNAL_PATHS.USER_DEFAULT]);
+      }
+      o.next([response]);
+    });
   }
 
   /**
@@ -60,7 +59,6 @@ export class AuthService {
    */
     logout() {
       localStorage.removeItem(this.nameUserLS);
-      this.currentUser.next(null);
       this.router.navigateByUrl(INTERNAL_ROUTES.AUTH_LOGIN);
     }
   

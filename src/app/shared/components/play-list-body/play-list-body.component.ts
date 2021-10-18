@@ -9,10 +9,10 @@ import { ISong } from '@data/interfaces';
 })
 export class PlayListBodyComponent implements OnInit {
 
-  // @Input() tracks: ISong[] = []
+  @Input() tracks: ISong[] = []
   optionSort: { property: string | null, order: string } = { property: null, order: 'asc' }
 
-  public tracks: ISong[] = SONGS_DATA_ITEMS;
+  // public tracks: ISong[] = SONGS_DATA_ITEMS;
 
   constructor() { }
 

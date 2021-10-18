@@ -1,22 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '@modules/auth/services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
-  errorSession: boolean = false;
+export class LoginComponent implements OnInit, OnDestroy {
+  
+  public error: boolean = false;
+  public errorMsg: string;
+
   formLogin: FormGroup = new FormGroup({});
+  public listObservers$: Array<Subscription> = []
 
   constructor(
     private authService: AuthService,
-  ) 
-  // private cookie: CookieService,
-  // private router: Router
-  {}
+  ){}
 
   ngOnInit(): void {
     this.formLogin = new FormGroup({
@@ -30,22 +32,17 @@ export class LoginComponent implements OnInit {
   }
 
   sendLogin(): void {
-    this.authService
-      .login(this.formLogin.value)
-      //TODO: 200 <400
-      .subscribe(
-        (responseOk) => {
-          //TODO: Cuando el usuario credenciales Correctas ✔✔
-          console.log('Session iniciada correcta', responseOk);
-          // const { tokenSession, data } = responseOk;
-          // this.cookie.set('token', tokenSession, 4, '/'); //TODO:📌📌📌📌
-          // this.router.navigate(['/', 'tracks']);
-        },
-        (err) => {
-          //TODO error 400>=
-          this.errorSession = true;
-          console.log('⚠⚠⚠⚠Ocurrio error con tu email o password');
-        }
-      );
+    const observer$ = this.authService.login(this.formLogin.value).subscribe(r => {
+      if (!r.data) {
+        // console.log(r);
+      }else{
+        this.formLogin.reset();
+      }
+    });
+    this.listObservers$ = [observer$];
+  }
+
+  ngOnDestroy(): void {
+    this.listObservers$.forEach(u => u.unsubscribe());
   }
 }

@@ -16,7 +16,7 @@ export const SONGS_DATA_ITEMS: ISong[] = [
             start: 0,
             end: 333,
         },
-        url: 'http://localhost:3000/track.mp3',
+        url: 'assets/audio/track.mp3',
     },
     {
         _id: 2,
@@ -33,7 +33,7 @@ export const SONGS_DATA_ITEMS: ISong[] = [
             start: 0,
             end: 333,
         },
-        url: 'http://localhost:3000/track-1.mp3',
+        url: 'assets/audio/track-1.mp3',
     },
     {
         _id: 3,
@@ -50,7 +50,7 @@ export const SONGS_DATA_ITEMS: ISong[] = [
             start: 0,
             end: 333,
         },
-        url: 'http://localhost:3000/track-2.mp3',
+        url: 'assets/audio/track-2.mp3',
     },
     {
         _id: 4,
@@ -67,7 +67,7 @@ export const SONGS_DATA_ITEMS: ISong[] = [
             start: 0,
             end: 333,
         },
-        url: 'http://localhost:3000/track-4.mp3',
+        url: 'assets/audio/track-4.mp3',
     },
     {
         _id: 5,
@@ -83,7 +83,7 @@ export const SONGS_DATA_ITEMS: ISong[] = [
             start: 0,
             end: 333,
         },
-        url: 'http://localhost:3000/track-3.mp3',
+        url: 'assets/audio/track-3.mp3',
     },
     {
         _id: 6,
@@ -100,7 +100,7 @@ export const SONGS_DATA_ITEMS: ISong[] = [
             start: 0,
             end: 333,
         },
-        url: 'http://localhost:3000/track-5.mp3',
+        url: 'assets/audio/track-5.mp3',
     },
     {
         _id: 7,
@@ -116,7 +116,7 @@ export const SONGS_DATA_ITEMS: ISong[] = [
             start: 0,
             end: 333,
         },
-        url: 'http://localhost:3000/track-6.mp3',
+        url: 'assets/audio/track-6.mp3',
     },
     {
         _id: 8,
@@ -132,6 +132,6 @@ export const SONGS_DATA_ITEMS: ISong[] = [
             start: 0,
             end: 333,
         },
-        url: 'http://localhost:3000/track-7.mp3',
+        url: 'assets/audio/track-7.mp3',
     },
 ];

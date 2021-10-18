@@ -48,8 +48,8 @@
     font-size: 1.15rem;
     border-radius: 2rem;
     background-color: var(--color-1);
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
 }
 
 .card-player.player-big {
@@ -81,4 +81,9 @@
     position: absolute;
     right: 0;
     top: 13rem
+}
+
+.buttons-player img {
+    margin-top: 5px;
+    margin-left: 3px;
 }
