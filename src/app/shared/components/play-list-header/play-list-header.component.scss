@@ -1,9 +1,7 @@
 .play-list-header {
-    display: flex;
-    height: 18rem;
     width: 100%;
-    padding-top: 3rem;
     padding-bottom: 1rem;
+    padding-left: 2rem;
     background-color: #ffffff14;
 }
 
@@ -41,8 +39,8 @@
 }
 
 .content-text .title {
-    font-size: 6rem;
-    letter-spacing: -7px;
+    font-size: 3rem;
+    letter-spacing: 1px;
 }
 
 .content-text .small-text {
@@ -54,4 +52,14 @@
     font-weight: 300;
     opacity: .7;
     padding-left: .5rem;
+}
+
+@media (max-width: 570px) {
+    .content-text .title {
+        font-size: 1rem;
+    }
+
+    .content-text .sub-title {
+        font-size: .75rem;
+    }
 }

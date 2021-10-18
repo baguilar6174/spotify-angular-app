@@ -24,4 +24,13 @@
             </div>
         </li>
     </ul>
+    <div class="side-bar__separator line-separator"></div>
+    <ul class="side-bar__list list-one">
+        <li (click)="authService.logout()">
+            <div class="list-wrapper-item">
+                <img src="assets/icons/exit.svg">
+                <span class="side-bar__list list-label">Salir</span>
+            </div>
+        </li>
+    </ul>
 </div>

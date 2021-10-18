@@ -1,30 +1,36 @@
-<div class="login-auth-page">
-    <div class="login-auth-wrapper">
-        <h3>Para continuar, inicia sesión en Spotify.</h3>
-        <div class="login-social-zone">
-            <button class="social-btn btn-fb">Continuar con Social</button>
-            <button class="social-btn btn-apple">Continuar con Apple</button>
-            <button class="social-btn">Continuar con Google</button>
+<div class="container-fluid login-auth-page">
+    <div class="row my-5 py-5 justify-content-center text-center">
+        <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+            <br><br><br><br><br><br>
+            <h3>Para continuar, inicia sesión</h3>
+            <div class="pt-4 login-social-zone">
+                <button class="social-btn btn-fb">Continuar con Social</button>
+                <button class="social-btn btn-apple my-3">Continuar con Apple</button>
+                <button class="social-btn">Continuar con Google</button>
+            </div>
+            <div class="separator"></div>
+            <form (ngSubmit)="sendLogin()" [formGroup]="formLogin" class="login-auth-form">
+                <div class="form-group">
+                    <label for="email">Dirección de correo o nombre de usuario</label>
+                    <input formControlName="email" type="email" placeholder="Dirección de correo o nombre de usuario"
+                        class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input formControlName="password" type="password" placeholder="Contraseña" class="form-input">
+                </div>
+                <div class="form-steps">
+                    <a class="link" href="">¿Se te ha olvidado la contraseña?</a>
+                </div>
+                <div *ngIf="error">
+                    Ocurrio un error con tu email o password
+                </div>
+                <div class="form-action">
+                    <button [disabled]="formLogin.invalid" class="login social-btn">Iniciar sesión</button>
+                </div>
+            </form>
         </div>
-        <div class="separator"></div>
-        <form (ngSubmit)="sendLogin()" [formGroup]="formLogin" class="login-auth-form">
-            <div class="form-group">
-                <label for="email">Dirección de correo o nombre de usuario</label>
-                <input formControlName="email" type="email" placeholder="Dirección de correo o nombre de usuario" class="form-input">
-            </div>
-            <div class="form-group">
-                <label for="password">Contraseña</label>
-                <input formControlName="password" type="password" placeholder="Contraseña" class="form-input">
-            </div>
-            <div class="form-steps">
-                <a class="link" href="">¿Se te ha olvidado la contraseña?</a>
-            </div>
-            <div *ngIf="error">
-                Ocurrio un error con tu email o password
-            </div>
-            <div class="form-action">
-                <button [disabled]="formLogin.invalid" class="login social-btn">Iniciar sesión</button>
-            </div>
-        </form>
+
+
     </div>
 </div>
